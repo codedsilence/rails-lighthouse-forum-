@@ -6,38 +6,37 @@ class PostsController < ApplicationController
 				title: "Superstar",
 				author: "Carly Rae Jepson",
 				text: <<-eos.gsub(/\s+/," ").strip
-					Jepson has been my music idol since I started writing songs back when I was 4.
+				Jepson has been my music idol since I started writing songs back when I was 4.
 				eos
-			},				
-			{
-				title: "Basketball Idol",
-				author: "Steve Nash",
-				text: <<-eos.gsub(/\s+/, " ").strip
+				},				
+				{
+					title: "Basketball Idol",
+					author: "Steve Nash",
+					text: <<-eos.gsub(/\s+/, " ").strip
 					Dude had moves nobody had ever seen. Breaking ankles.
-				eos
-			},
-		]
-	end
+					eos
+					},
+				]
+			end
 
-	def post0
-			@post = {
-				title: "Superstar",
-				author: "Carly Rae Jepson",
-				text: <<-eos.gsub(/\s+/," ").strip
-					Jepson has been my music idol since I started writing songs back when I was 4.
-				eos
-			}
-	end
+			def show
+				posts = [
+					{	
+						title: "Superstar",
+						author: "Carly Rae Jepson",
+						text: <<-eos.gsub(/\s+/," ").strip
+						Jepson has been my music idol since I started writing songs back when I was 4.
+						eos
+						},
+						{
+							title: "Basketball Idol",
+							author: "Steve Nash",
+							text: <<-eos.gsub(/\s+/, " ").strip
+							Dude had moves nobody had ever seen. Breaking ankles.
+							eos
+						}
+					]
+					@post = posts[params[:id].to_i]	
+				end
 
-	def post1
-		@post = {
-			title: "Superstar",
-			author: "Carly Rae Jepson",
-			text: <<-eos.gsub(/\s+/," ").strip
-			Jepson has been my music idol since I started writing songs back when I was 4.
-			eos
-		}
-
-	end
-
-end
+			end
